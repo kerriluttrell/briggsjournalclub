@@ -1,0 +1,21 @@
+---
+title: "Briggslabjournalclub 01/18/2021"
+author: "Kerri Luttrell"
+date: "1/18/2021"
+output: html_document
+---
+
+```{r setup, include=F}
+knitr:: opts_chunk$set(echo =TRUE)
+```
+
+# Headline
++ bullet list
++ bullet list
+
+## Subheadline
+
+**bold**
+*italics*
+
+
