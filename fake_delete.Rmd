@@ -4,11 +4,64 @@ author: "Kerri Luttrell"
 date: "1/18/2021"
 output: html_document
 ---
+I am creaitng n rmarkdown file for journal club.
+
+You canmake a github with different set codes:
++ plot themes
++ libraries you commonly use
+
 
 ```{r setup, include=F}
 knitr:: opts_chunk$set(echo =TRUE)
+library(tidyverse)
+library(readr)
+library(ggplot2)
+
 ```
 
+
+```{r upload data}
+np_parks <- read_csv("National Parks Visitation Data.csv")
+class(np_parks)
+
+#explore
+names(np_parks)
+dim(np_parks)
+view(np_parks)
+
+#numeric summary
+summary(np_parks$Visitors)
+#character summary
+summary(np_parks$Type)
+
+```
+
+```{r data frame}
+
+df1 <- select(np_parks, Region:YearRaw)
+#choose only certain columns
+
+df2 <- filter(df1, Region == "SE" & Type== "National Park")
+#choose only certain rows from those columns 
+
+df3 <-  arrange(df2, Code, YearRaw)
+#choose order, put codes in alphabetical order and within arrange by year
+
+df4 <- mutate(df3, kVis = Visitors/1000)
+#create new variable, if i put = it only lists variable name, if i put <- it pastes the equation too
+
+summary(df4)
+class( df5$YearRaw)
+unique(df5$YearRaw)
+
+df5 <- filter(df4, YearRaw != "Total")
+
+df5$YearRaw <- as.numeric(df5$YearRaw)
+
+#compare
+dim(np_parks)
+dim(df5)
+```
 # Headline
 + bullet list
 + bullet list
@@ -17,5 +70,10 @@ knitr:: opts_chunk$set(echo =TRUE)
 
 **bold**
 *italics*
+
+**GIT**
++ select
++ commit
++ push
 
 
